@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+  	<meta charset="utf-8" />
+
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+  	<%= stylesheet_link_tag    "application" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="logo_left">
+      <%= image_tag "logo.png" %>
+      <br/>
+      <h1>Sample Todo Test Application</h1>
+      <p>Todo MVC is a test application that has helped gauge different MVC frameworks better and also has given an opportunity to try each of them in order for the user to use the best version of it for their application. This sample ToDo application emulates the MVC app, but is just build on Jquery and Ruby on Rails with Postgresql as the backend.</p>
+    </div>
+    <div class="logo_right">
+      <%= image_tag "icon.png" %>
+    </div>
+	<ul class="hmenu">
+	  <%= render 'devise/menu/registration_items' %>
+	  <%= render 'devise/menu/login_items' %>
+	</ul>
+	
+    <%= yield %>
+
+    
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
